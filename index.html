@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+  crossorigin
+  src="https://unpkg.com/react@18/umd/react.development.js"
+></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+<script type="text/babel">
+    const superheroes = [
+      {
+        name: "Batman",
+        powers: ["Rich", "Fly", "Genius"],
+        address: {
+          street: "Gotham St",
+          city: "Gotham",
+          country: "USA",
+        },
+        age: 21,
+        isBachelor: true,
+        imageUrl:
+          "https://rukminim2.flixcart.com/image/850/1000/poster/7/d/g/batman-portrait-bt455566-medium-original-imaekp86fhb3fhxf.jpeg",
+      },
+      {
+        name: "Superman",
+        powers: ["Laser Fry", "Fly", "Runs Fast"],
+        address: {
+          street: "Central St",
+          city: "New York",
+          country: "USA",
+        },
+        age: 41,
+        isBachelor: false,
+        imageUrl:
+          "https://c8.alamy.com/comp/2R7EMM0/portrait-of-a-drawing-of-superman-superhero-warner-dc-and-comics-concept-2R7EMM0.jpg",
+      },
+    ];
+
+    function SuperheroCard({ superheroes }) {
+      return (
+        <>
+      {superheroes.map((ele) => (
+      <div key={ele.name}>
+       <img src={ele.imageUrl} alt="" />
+      <h2>Name--{ele.name}</h2>
+      <h3>Age--{ele.age}</h3>
+      <h3>Powers---{ele.powers}</h3>
+     <h3>Street---{ele.address.street}</h3>
+     <h3>City---{ele.address.city}</h3>
+     <h2 style={{ color: ele.isBachelor ? ('red') : ('green') }}>
+      {ele.isBachelor ? 'Bachelor' : 'Not a Bachelor'}
+    </h2>
+  </div>
+))}
+
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<SuperheroCard superheroes={superheroes} />);
+  </script>
+</html>
